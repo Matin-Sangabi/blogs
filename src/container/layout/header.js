@@ -14,7 +14,7 @@ const Header = () => {
                 <Link
                   key={i}
                   href={nav.path}
-                  className="font-bold text-slate-900"
+                  className="font-bold text-slate-900 hover:text-lg transition-all ease-in-out duration-100"
                 >
                   {nav.name}
                 </Link>
