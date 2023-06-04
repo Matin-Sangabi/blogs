@@ -1,12 +1,5 @@
 import Link from "next/link";
-
-const navigation = [
-  { name: "home", path: "/" },
-  { name: "pages", path: "/pages" },
-  { name: "portfolio", path: "/portfolio" },
-  { name: "Blogs", path: "/blogs" },
-  { name: "shop", path: "/shop" },
-];
+import { navigation } from "@/utils/navigations";
 const Header = () => {
   return (
     <header className="sticky top-0 w-full backdrop-blur-lg blur-0 opacity-100 transition-all ease-in-out duration-300 z-40 p-3">
