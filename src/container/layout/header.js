@@ -6,7 +6,7 @@ const Header = () => {
       <div className="max-w-screen-2xl mx-auto px-4 container">
         <nav className="w-full flex items-center justify-between">
           {/* BRAND */}
-          <div className="text-slate-800 text-3xl font-bold ">Sada.</div>
+          <Link href="/" className="text-slate-800 text-3xl font-bold ">Sada.</Link>
           {/* navigation */}
           <ul className="hidden md:flex items-center gap-x-10">
             {navigation.map((nav, i) => {
