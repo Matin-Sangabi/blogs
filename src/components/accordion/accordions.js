@@ -4,7 +4,7 @@ import MuiAccordion from "@mui/material/Accordion";
 import MuiAccordionSummary from "@mui/material/AccordionSummary";
 import MuiAccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
-import { ArrowDown2 } from "iconsax-react";
+import { ArrowDown2, Category, SidebarTop } from "iconsax-react";
 import Link from "next/link";
 
 const Accordion = styled((props) => (
@@ -49,15 +49,17 @@ const Accordions = ({ panel, title, accordionNavigation }) => {
         id="panel1a-header"
         className="bg-gray-50 border-none outline-none ring-0 text-sm rounded-2xl"
       >
-        <Typography
-          fontWeight={"bold"}
-          className="text-slate-800 text-base font-bold"
-        >
+        <div className="text-slate-800 text-base font-bold flex items-center gap-x-4">
+          {panel === "panel1" ? (
+            <SidebarTop size={18} variant="Bulk" className="text-cyan-800" />
+          ) : (
+            <Category size={18} variant="Bulk" className="text-cyan-800" />
+          )}
           {title}
-        </Typography>
+        </div>
       </AccordionSummary>
       <AccordionDetails>
-        <ul className="flex flex-col gap-y-3 text-slate-800 font-semibold max-h-96 overflow-y-auto">
+        <ul className="flex flex-col gap-y-3 text-slate-800 font-semibold max-h-96 overflow-y-auto scrollbar-thin scrollbar-thumb-rounded-2xl  scrollbar-thumb-gray-300 ">
           {panel === "panel1" ? (
             <TopPostsAccordion topPosts={accordionNavigation} />
           ) : (
