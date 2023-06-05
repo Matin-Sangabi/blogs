@@ -11,7 +11,7 @@ const topPostsNAvigation = [
   { title: "fluuter  Vs React-native" },
 ];
 
-const BlogPage = () => {
+const BlogPage = ({ categories }) => {
   return (
     <Layout>
       <div className="container mx-auto max-w-screen-xl">
@@ -24,7 +24,7 @@ const BlogPage = () => {
             <Accordions
               panel={"panel2"}
               title={"Categories"}
-              accordionNavigation={categoriesNavigation}
+              accordionNavigation={categories}
             />
             {/* Top postes accordion */}
             <Accordions
