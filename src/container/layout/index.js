@@ -10,7 +10,7 @@ const Layout = ({ children }) => {
         <Header />
         {/* breadcrumbs */}
         <LayoutBreadCrumbs />
-        <div className="container mx-auto max-w-screen-2xl py-4 p-2">
+        <div className="container mx-auto max-w-screen-xl py-4 p-2">
           {children}
         </div>
       </div>

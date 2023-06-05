@@ -50,8 +50,8 @@ const Accordions = ({ panel, title, accordionNavigation }) => {
           {title}
         </Typography>
       </AccordionSummary>
-      <AccordionDetails className="">
-        <ul className="flex flex-col gap-y-3 text-slate-800 font-semibold ">
+      <AccordionDetails className="p-0">
+        <ul className="flex flex-col gap-y-3 text-slate-800 font-semibold">
           {panel === "panel1" ? (
             <TopPostsAccordion topPosts={accordionNavigation} />
           ) : (
@@ -70,7 +70,7 @@ function CategoriesNavigation({ navigation }) {
     <Link
       key={i}
       href={`/blogs/${nav.path}`}
-      className="w-full font-semibold p-2 border-b border-b-slate-800 last:border-b-0"
+      className="px-6 py-2 font-semibold block border-b border-b-slate-200 last:border-b-0 last:pb-4 "
     >
       {nav.name}
     </Link>
@@ -83,7 +83,7 @@ function TopPostsAccordion({ topPosts }) {
     <Link
       key={i}
       href={`/posts`}
-      className="flex p-2 items-start gap-x-4 text-slate-800 hover:bg-slate-800 hover:text-slate-300 rounded-lg transition-all ease-in-out duration-150"
+      className="flex px-6 items-start gap-x-4 text-slate-800 hover:bg-slate-800 hover:text-slate-300 rounded-lg transition-all ease-in-out duration-150 last:pb-4"
     >
       <span className="text-3xl font-bold">{i + 1}</span>
       <div className="flex flex-col gap-1">
