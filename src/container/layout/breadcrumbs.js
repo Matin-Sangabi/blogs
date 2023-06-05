@@ -24,7 +24,7 @@ const LayoutBreadCrumbs = () => {
   if (asPath !== "/") {
     return (
       <div className="w-full bg-white py-4 shadow-lg mt-10">
-        <div className="flex items-center justify-between max-w-screen-2xl mx-auto container p-2">
+        <div className="flex items-center justify-between max-w-screen-xl mx-auto container p-2">
           <Link href={"/"} className="text-3xl font-bold text-slate-800">
             {asPath.split("/")[1]}
           </Link>
