@@ -2,7 +2,7 @@ import * as React from "react";
 import { styled } from "@mui/material/styles";
 import MuiAccordion from "@mui/material/Accordion";
 import MuiAccordionSummary from "@mui/material/AccordionSummary";
-import MuiAccordionDetails from '@mui/material/AccordionDetails';
+import MuiAccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
 import { ArrowDown2 } from "iconsax-react";
 import Link from "next/link";
@@ -32,9 +32,7 @@ const AccordionSummary = styled((props) => (
 
 const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
   padding: theme.spacing(0),
-  borderTop: '1px solid rgba(0, 0, 0, .125)',
 }));
-
 
 const Accordions = ({ panel, title, accordionNavigation }) => {
   const [expended, setExpended] = React.useState("panel1");
