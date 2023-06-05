@@ -1,7 +1,7 @@
 import * as React from "react";
 import { styled } from "@mui/material/styles";
 import MuiAccordion from "@mui/material/Accordion";
-import AccordionSummary from "@mui/material/AccordionSummary";
+import MuiAccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
 import { ArrowDown2 } from "iconsax-react";
@@ -12,6 +12,7 @@ const Accordion = styled((props) => (
 ))(({ theme }) => ({
   border: ``,
   borderRadius: "20px",
+  fontWeight: "bold",
   "&:not(:last-child)": {
     borderBottom: 0,
   },
@@ -19,12 +20,22 @@ const Accordion = styled((props) => (
     display: "none",
   },
 }));
-
+const AccordionSummary = styled((props) => (
+  <MuiAccordionSummary expandIcon={<ArrowDown2 size={16} />} {...props} />
+))(({ theme }) => ({
+  fontWeight: "bold",
+  "& .MuiAccordionSummary-content": {
+    marginLeft: theme.spacing(1),
+  },
+}));
 const Accordions = ({ panel, title, accordionNavigation }) => {
+  
   const [expended, setExpended] = React.useState("panel1");
+
   const handleChange = (panel) => (event, newExpanded) => {
     setExpended(newExpanded ? panel : false);
   };
+
   return (
     <Accordion expanded={expended === panel} onChange={handleChange(panel)}>
       <AccordionSummary
@@ -33,7 +44,10 @@ const Accordions = ({ panel, title, accordionNavigation }) => {
         id="panel1a-header"
         className="bg-gray-50 border-none outline-none ring-0 text-sm rounded-2xl"
       >
-        <Typography className="text-slate-800 text-base font-bold">
+        <Typography
+          fontWeight={"bold"}
+          className="text-slate-800 text-base font-bold"
+        >
           {title}
         </Typography>
       </AccordionSummary>
@@ -57,7 +71,7 @@ function CategoriesNavigation({ navigation }) {
     <Link
       key={i}
       href={`/blogs/${nav.path}`}
-      className="w-full py-2 border-b border-b-slate-800 last:border-b-0"
+      className="w-full font-semibold p-2 border-b border-b-slate-800 last:border-b-0"
     >
       {nav.name}
     </Link>
