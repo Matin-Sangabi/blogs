@@ -72,15 +72,25 @@ const Accordions = ({ panel, title, accordionNavigation }) => {
 export default Accordions;
 
 function CategoriesNavigation({ navigation }) {
-  return navigation.map((nav, i) => (
-    <Link
-      key={i}
-      href={`/blogs/${nav.englishTitle}`}
-      className="px-6 py-2 font-semibold block border-b border-b-slate-200 last:border-b-0 last:pb-4 "
-    >
-      {nav.title}
-    </Link>
-  ));
+  return (
+    <>
+      <Link
+        href={"/blogs"}
+        className="px-6 py-2 font-semibold block border-b border-b-slate-200 last:border-b-0 last:pb-4 "
+      >
+        All Categories
+      </Link>
+      {navigation.map((nav, i) => (
+        <Link
+          key={i}
+          href={`/blogs/${nav.englishTitle}`}
+          className="px-6 py-2 font-semibold block border-b border-b-slate-200 last:border-b-0 last:pb-4 "
+        >
+          {nav.title}
+        </Link>
+      ))}
+    </>
+  );
 }
 
 function TopPostsAccordion({ topPosts }) {
