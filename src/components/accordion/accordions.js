@@ -57,7 +57,7 @@ const Accordions = ({ panel, title, accordionNavigation }) => {
         </Typography>
       </AccordionSummary>
       <AccordionDetails>
-        <ul className="flex flex-col gap-y-3 text-slate-800 font-semibold">
+        <ul className="flex flex-col gap-y-3 text-slate-800 font-semibold max-h-96 overflow-y-auto">
           {panel === "panel1" ? (
             <TopPostsAccordion topPosts={accordionNavigation} />
           ) : (
