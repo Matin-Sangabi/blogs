@@ -29,7 +29,6 @@ const AccordionSummary = styled((props) => (
   },
 }));
 const Accordions = ({ panel, title, accordionNavigation }) => {
-  
   const [expended, setExpended] = React.useState("panel1");
 
   const handleChange = (panel) => (event, newExpanded) => {
@@ -84,7 +83,7 @@ function TopPostsAccordion({ topPosts }) {
     <Link
       key={i}
       href={`/posts`}
-      className="flex p-2 items-start gap-x-4 text-slate-800"
+      className="flex p-2 items-start gap-x-4 text-slate-800 hover:bg-slate-800 hover:text-slate-300 rounded-lg transition-all ease-in-out duration-150"
     >
       <span className="text-3xl font-bold">{i + 1}</span>
       <div className="flex flex-col gap-1">

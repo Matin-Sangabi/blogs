@@ -1,12 +1,7 @@
 import Accordions from "@/components/accordion/accordions";
 import SearchBar from "@/components/searchBar/searchbar";
 import Layout from "@/container/layout";
-const categoriesNavigation = [
-  { name: "React.js", path: "React.js" },
-  { name: "Vue.js", path: "Vue.js" },
-  { name: "Nuxt.js", path: "Nuxt.js" },
-  { name: "next.js", path: "next.js" },
-];
+import { categoriesNavigation } from "@/utils/CategoriesNavigation";
 const topPostsNAvigation = [
   { title: "React best js libary" },
   { title: "NExt best js libary" },
