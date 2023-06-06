@@ -11,7 +11,7 @@ const topPostsNAvigation = [
   { title: "fluuter  Vs React-native" },
 ];
 
-const BlogPage = ({ categories }) => {
+const BlogPage = ({ categories, posts }) => {
   return (
     <Layout>
       <div className="container mx-auto max-w-screen-xl">
@@ -34,7 +34,7 @@ const BlogPage = ({ categories }) => {
             />
           </section>
           {/* main */}
-          <PostsList />
+          <PostsList posts={posts} />
         </div>
       </div>
     </Layout>

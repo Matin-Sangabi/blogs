@@ -9,10 +9,11 @@ import {
     Clock,
   } from "iconsax-react";
 
-const PostsList = () => {
+const PostsList = ({posts}) => {
+  console.log(posts)
   return (
     <section className="md:col-span-9 grid grid-cols-6 gap-8 px-4 md:px-0">
-      {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13].map((_, i) => (
+      {posts.docs.map((post, i) => (
         <div
           key={i}
           className="pb-2 bg-white rounded-lg shadow-md col-span-6 md:col-span-3 lg:col-span-2 flex flex-col gap-y-2"
@@ -21,7 +22,7 @@ const PostsList = () => {
           <BlogLinks href={`/posts/`}>
             <div className="aspect-w-16 aspect-h-9 ">
               <img
-                src={`/images/blogs/React.js.png`}
+                src={`${post.coverImage}`}
                 alt=""
                 className="w-full h-full object-cover object-center rounded-t-lg shadow-md"
               />
