@@ -18,7 +18,7 @@ const PostsList = ({ posts }) => {
           className="pb-2 bg-white rounded-lg shadow-md col-span-6 md:col-span-3 lg:col-span-2 flex flex-col gap-y-2"
         >
           {/* blogs img*/}
-          <BlogLinks href={`/posts/${post.hashId}/${post.slug}`}>
+          <BlogLinks href={`/posts/${post.slug}`}>
             <div className="aspect-w-16 aspect-h-9 ">
               <img
                 src={`${post.coverImage}`}
@@ -38,7 +38,7 @@ const PostsList = ({ posts }) => {
               })}
             </span>
             {/* blog data */}
-            <BlogLinks href={`/posts/${post.hashId}/${post.slug}`}>
+            <BlogLinks href={`/posts/${post.slug}`}>
               <h1 className="text-lg text-slate-800 font-bold">{post.title}</h1>
             </BlogLinks>
             <h2 className="text-gray-400 font-normal pt-2">
