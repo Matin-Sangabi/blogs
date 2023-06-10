@@ -10,7 +10,6 @@ import {
 } from "iconsax-react";
 
 const PostsList = ({ posts }) => {
-  console.log(posts);
   return (
     <section className="md:col-span-9 grid grid-cols-6 gap-8 px-4 md:px-0">
       {posts.docs.map((post, i) => (

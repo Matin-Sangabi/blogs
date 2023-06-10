@@ -2,7 +2,6 @@ import BlogPage from "@/components/blogs/blogPage";
 import http from "@/services/httpRequest";
 
 const Blogs = ({ categories, posts }) => {
-  console.log(posts);
   return <BlogPage categories={categories} posts = {posts} />;
 };
 
