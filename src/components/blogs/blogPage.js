@@ -2,6 +2,7 @@ import Accordions from "@/components/accordion/accordions";
 import PostsList from "@/components/posts/postsList";
 import SearchBar from "@/components/searchBar/searchbar";
 import Layout from "@/container/layout";
+import LayoutBreadCrumbs from "@/container/layout/breadcrumbs";
 import { categoriesNavigation } from "@/utils/CategoriesNavigation";
 
 const topPostsNAvigation = [
@@ -14,6 +15,7 @@ const topPostsNAvigation = [
 const BlogPage = ({ categories, posts }) => {
   return (
     <Layout>
+      <LayoutBreadCrumbs />
       <div className="container mx-auto max-w-screen-xl">
         <div className="grid md:grid-cols-12 gap-6 mt-6">
           {/* sidebar */}
