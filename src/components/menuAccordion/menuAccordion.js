@@ -35,7 +35,7 @@ const MenuAccordion = ({ url }) => {
         aria-controls={open ? "basic-menu" : undefined}
         aria-haspopup="true"
         aria-expanded={open ? "true" : undefined}
-        className="text-slate-600  hover:text-salte-800 transition-all ease-in-out duration-200 text-2xl px-2 hover:px-4 py-1 hover:bg-gray-300 rounded-lg"
+        className="text-slate-600  hover:text-salte-800 transition-all ease-in-out duration-200 text-2xl px-2  py-1 hover:bg-gray-300 rounded-lg"
       >
         <More />
       </button>
