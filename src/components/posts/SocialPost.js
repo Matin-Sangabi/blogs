@@ -4,26 +4,11 @@ import {
   Facebook,
   Instagram,
   Link21,
-  More,
-  CopySuccess,
-  Copy,
 } from "iconsax-react";
 import Link from "next/link";
-import { useState } from "react";
-import { CopyToClipboard } from "react-copy-to-clipboard";
-import toast from "react-hot-toast";
+import MenuAccordion from "../menuAccordion/menuAccordion";
 const SocialPost = ({ date }) => {
-  const [copied, setCopied] = useState(false);
-  const coppyHandler = () => {
-    setCopied(true);
-    toast.success("link copied to clipboard", {
-      icon: <CopySuccess className="text-green-600" />,
-    });
-    setTimeout(() => {
-      setCopied(false);
-    }, 3000);
-  };
-  
+
   return (
     <div className="p-2 w-full flex flex-col items-start justify-between lg:flex-row lg:items-center gap-y-2">
       <div className="flex items-center gap-x-4">
@@ -46,18 +31,7 @@ const SocialPost = ({ date }) => {
         <Link href={``} className="text-slate-700 hover:text-orange-800">
           <Link21 />
         </Link>
-        <CopyToClipboard text="matin sangabi" onCopy={coppyHandler}>
-          <button type="button" className="text-slate-500 hover:text-gray-800">
-            {copied ? (
-              <div className="flex items-center gap-x-2 p-2 text-green-600 ">
-                <CopySuccess className="text-green-600" />
-                <span>link copied</span>
-              </div>
-            ) : (
-              <Copy />
-            )}
-          </button>
-        </CopyToClipboard>
+        <MenuAccordion url={"/"} />
       </div>
     </div>
   );
@@ -67,7 +41,14 @@ export default SocialPost;
 /**
  * <CopyToClipboard text="matin sangabi" onCopy={coppyHandler}>
           <button type="button" className="text-slate-500 hover:text-gray-800">
-            <Link21 />
+            {copied ? (
+              <div className="flex items-center gap-x-2 p-2 text-green-600 ">
+                <CopySuccess className="text-green-600" />
+                <span>link copied</span>
+              </div>
+            ) : (
+              <Copy />
+            )}
           </button>
         </CopyToClipboard>
  */
