@@ -1,8 +1,10 @@
 import Layout from "@/container/layout";
 import http from "@/services/httpRequest";
+import { DateCalculate } from "@/utils/DateCalculate";
 import { Blogger, Facebook, Instagram, Link21, More } from "iconsax-react";
 import Link from "next/link";
 const PostList = ({ posts }) => {
+  console.log(posts);
   return (
     <Layout>
       <div className="max-w-screen-xl px-2 mx-auto mt-8">
@@ -15,11 +17,7 @@ const PostList = ({ posts }) => {
               <h1>Blogger</h1>
             </div>
             <span className="w-2 h-2 bg-slate-400 rounded-full "></span>
-            <span className="text-slate-500 text-sm">{new Date(posts.updatedAt).toLocaleDateString("en-US", {
-                year: "numeric",
-                month: "long",
-                day: "numeric",
-              })}</span>
+            <span className="text-slate-500 text-sm">{DateCalculate(posts.updatedAt)}</span>
           </div>
           {/* socail media burron */}
           <div className="flex items-center gap-x-8">
