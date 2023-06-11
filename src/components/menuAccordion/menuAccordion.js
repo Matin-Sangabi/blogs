@@ -49,15 +49,15 @@ const MenuAccordion = ({ url }) => {
         }}
         className="flex flex-col gap-y-5"
       >
-        <MenuItem className="flex items-center gap-x-2 ">
+        <div className="flex items-center gap-x-2 cursor-pointer px-4 py-2 w-full hover:bg-gray-300 hover:bg-opacity-70 transition-all ease-in-out duration-150">
           <UserAdd size={20} variant="Bulk" className=" text-cyan-900" />
           <span className="text-sm">Follow</span>
-        </MenuItem>
-        <MenuItem className="flex items-center gap-x-2">
+        </div>
+        <div className="flex items-center gap-x-2 cursor-pointer px-4 py-2 w-full hover:bg-gray-300 hover:bg-opacity-70 transition-all ease-in-out duration-150">
           <ArchiveAdd size={20} variant="Bulk" className="text-cyan-900" />
           <span className="text-sm">Save </span>
-        </MenuItem>
-        <MenuItem>
+        </div>
+        <div className="px-4 py-2 w-full hover:bg-gray-300 hover:bg-opacity-70 transition-all ease-in-out duration-150 ">
           <CopyToClipboard text="matin sangabi" onCopy={coppyHandler}>
             <button type="button" className=" flex items-center gap-x-2">
               {copied ? (
@@ -77,7 +77,7 @@ const MenuAccordion = ({ url }) => {
               )}
             </button>
           </CopyToClipboard>
-        </MenuItem>
+        </div>
       </Menu>
     </>
   );
