@@ -8,7 +8,7 @@ const PostList = ({ posts }) => {
     <Layout>
       <div className="max-w-screen-xl px-2 mx-auto mt-8">
         {/* post  Social header*/}
-        <SocialPost date={posts.updatedAt} />
+        <SocialPost date={posts.updatedAt} url={posts.slug} />
       </div>
     </Layout>
   );

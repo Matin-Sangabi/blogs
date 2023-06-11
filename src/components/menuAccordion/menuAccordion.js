@@ -58,7 +58,10 @@ const MenuAccordion = ({ url }) => {
           <span className="text-sm">Save </span>
         </div>
         <div className="px-4 py-2 w-full hover:bg-gray-300 hover:bg-opacity-70 transition-all ease-in-out duration-150 ">
-          <CopyToClipboard text="matin sangabi" onCopy={coppyHandler}>
+          <CopyToClipboard
+            text={`${process.env.NEXT_PUBLIC_DOMAIN_URL}/posts/${url}`}
+            onCopy={coppyHandler}
+          >
             <button type="button" className=" flex items-center gap-x-2">
               {copied ? (
                 <>
@@ -67,7 +70,7 @@ const MenuAccordion = ({ url }) => {
                     variant="Bulk"
                     className="text-green-600"
                   />
-                  <span className="text-xs text-green-600">link copied</span>
+                  <span className="text-xs text-green-600">copied</span>
                 </>
               ) : (
                 <>

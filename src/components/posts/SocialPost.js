@@ -7,7 +7,7 @@ import {
 } from "iconsax-react";
 import Link from "next/link";
 import MenuAccordion from "../menuAccordion/menuAccordion";
-const SocialPost = ({ date }) => {
+const SocialPost = ({ date , url }) => {
 
   return (
     <div className="p-2 w-full flex flex-col items-start justify-between lg:flex-row lg:items-center gap-y-2">
@@ -31,7 +31,7 @@ const SocialPost = ({ date }) => {
         <Link href={``} className="text-slate-700 hover:text-orange-800">
           <Link21 />
         </Link>
-        <MenuAccordion url={"/"} />
+        <MenuAccordion url={url} />
       </div>
     </div>
   );
