@@ -1,11 +1,17 @@
 import Author from "@/components/author/author";
 import SocialPost from "@/components/posts/SocialPost";
+import Prose from "@/components/typography/prose";
 import Layout from "@/container/layout";
 import http from "@/services/httpRequest";
 import { PlayCircle, User } from "iconsax-react";
+import React from "react";
 
 const PostList = ({ posts }) => {
   console.log(posts);
+  const renderHTML = (rawHTML) =>
+    React.createElement("div", {
+      dangerouslySetInnerHTML: { __html: rawHTML },
+    });
   return (
     <Layout>
       <div className="max-w-screen-xl px-2 mx-auto mt-8">
@@ -13,7 +19,7 @@ const PostList = ({ posts }) => {
         <SocialPost date={posts.updatedAt} url={posts.slug} />
         {/* posts detail */}
         <div className="flex w-full flex-col gap-y-6 mt-10">
-          <h1 className="text-3xl w-full md:text-4xl lg:text-5xl text-slate-800 font-bold">
+          <h1 className="text-3xl py-3 track line-clamp-5 w-full md:text-4xl lg:text-5xl text-slate-800 font-bold">
             {posts.titleBrief}
           </h1>
           {/* post author */}
@@ -39,6 +45,8 @@ const PostList = ({ posts }) => {
               </div>
             </div>
           </div>
+          {/* typography */}
+          <Prose text={posts.text} />
         </div>
       </div>
     </Layout>
