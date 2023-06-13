@@ -1,22 +1,30 @@
 import Author from "@/components/author/author";
 import SocialPost from "@/components/posts/SocialPost";
+import PostComment from "@/components/posts/comments";
 import Prose from "@/components/typography/prose";
 import Layout from "@/container/layout";
 import http from "@/services/httpRequest";
 import { PlayCircle, User } from "iconsax-react";
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 const PostList = ({ posts }) => {
-  console.log(posts);
-  const renderHTML = (rawHTML) =>
-    React.createElement("div", {
-      dangerouslySetInnerHTML: { __html: rawHTML },
-    });
+  const [openComment, setOpenComment] = useState(false);
+  useEffect(() => {
+    if (openComment) {
+      document.body.classList.add("no-scroll");
+    } else {
+      document.body.classList.remove("no-scroll");
+    }
+  }, [openComment]);
   return (
     <Layout>
       <div className="max-w-screen-xl px-2 mx-auto mt-8">
         {/* post  Social header*/}
-        <SocialPost date={posts.updatedAt} url={posts.slug} />
+        <SocialPost
+          date={posts.updatedAt}
+          url={posts.slug}
+          onPostComment={() => setOpenComment(true)}
+        />
         {/* posts detail */}
         <div className="flex w-full flex-col gap-y-6 mt-10">
           <h1 className="text-3xl py-3 track line-clamp-5 w-full md:text-4xl lg:text-5xl text-slate-800 font-bold">
@@ -47,6 +55,10 @@ const PostList = ({ posts }) => {
           </div>
           {/* typography */}
           <Prose text={posts.text} />
+          <PostComment
+            openComment={openComment}
+            closeComment={() => setOpenComment(false)}
+          />
         </div>
       </div>
     </Layout>
