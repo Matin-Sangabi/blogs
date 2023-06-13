@@ -3,18 +3,23 @@ import { Heart, More, Send2, User } from "iconsax-react";
 const PostComment = ({ openComment, closeComment }) => {
   return (
     <div
-      className={`fixed inset-0 flex pt-20 w-full flex-col  bg-gray-400 overflow-hidden bg-opacity-70   ${
-        openComment ? "opacity-100 z-50" : "opacity-0 -z-10"
-      } transition-all ease-in-out duration-100 overflow-hidden `}
-      // onClick={closeComment}
+      className={`fixed inset-0 pt-20 w-full flex  flex-col justify-between z-50 overflow-hidden ${
+        openComment ? "visible" : "invisible"
+      }`}
+      
     >
-      <div className=""></div>
       <div
-        className={`flex-1 px-2 w-full mx-auto ${
+        className={`fixed inset-0 bg-gray-400 bg-opacity-70 -z-10 ${
+          openComment ? "opacity-100" : "opacity-0"
+        } transition-all ease-in-out duration-100`}
+        onClick={closeComment}
+      ></div>
+      <div
+        className={`flex-1 px-2  mx-auto ${
           openComment ? "translate-y-0" : "translate-y-full"
-        } transition-all ease-in-out duration-300`}
+        } transition-all ease-in-out duration-200`}
       >
-        <div className="max-w-screen-sm px-2 py-4 mx-auto container bg-slate-50 rounded-t-3xl shadow-md h-full flex flex-col justify-between">
+        <div className="max-w-screen-sm px-2 py-4 mx-auto container bg-slate-50 rounded-t-3xl shadow-md h-full flex flex-col justify-between z-50">
           {/* comment header */}
           <div className="flex flex-col gap-y-2 items-center max-w-screen-md">
             <span className="h-1 w-10 cursor-pointer rounded-2xl bg-gray-500"></span>
@@ -36,19 +41,20 @@ const PostComment = ({ openComment, closeComment }) => {
                   <span className="text-sm text-slate-500">Time</span>
                 </div>
                 <button className="rotate-90 text-slate-600">
-                  <More variant=""/>
+                  <More variant="" />
                 </button>
               </div>
               {/* Comment Detail*/}
               <p className="text-slate-800 px-4 font-bold">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                
                 sunt in culpa qui officia deserunt mollit anim id est laborum.
               </p>
               {/* comment Action */}
               <div className="flex items-center justify-between px-4">
-                <button className=""><Heart /></button>
+                <button className="">
+                  <Heart />
+                </button>
                 <button>reply</button>
               </div>
             </div>
@@ -75,3 +81,20 @@ const PostComment = ({ openComment, closeComment }) => {
 };
 
 export default PostComment;
+/**
+ * <div
+      className={`fixed inset-0 flex pt-20 w-full flex-col  bg-gray-400 overflow-hidden bg-opacity-70   ${
+        openComment ? "opacity-100 z-40" : "opacity-0 -z-10"
+      } transition-all ease-in-out duration-100 overflow-hidden `}
+      onClick={closeComment}
+    >
+      <div className=""></div>
+      <div
+        className={`flex-1 px-2 w-full mx-auto  ${
+          openComment ? "translate-y-0" : "translate-y-full"
+        } transition-all ease-in-out duration-300`}
+      >
+       
+      </div>
+    </div>
+ */
