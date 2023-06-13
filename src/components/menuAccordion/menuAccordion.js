@@ -70,12 +70,12 @@ const MenuAccordion = ({ url }) => {
                     variant="Bulk"
                     className="text-green-600"
                   />
-                  <span className="text-xs text-green-600">copied</span>
+                  <span className="text-xs text-green-600">Copied</span>
                 </>
               ) : (
                 <>
                   <Copy size={20} variant="Bulk" className="text-cyan-900" />
-                  <span className="text-sm">Copy url</span>
+                  <span className="text-sm">Copy</span>
                 </>
               )}
             </button>
