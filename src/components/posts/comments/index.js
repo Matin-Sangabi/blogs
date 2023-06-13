@@ -1,4 +1,5 @@
 import { Heart, More, Send2, User } from "iconsax-react";
+import Comment from "./comment";
 
 const PostComment = ({ openComment, closeComment }) => {
   return (
@@ -6,7 +7,6 @@ const PostComment = ({ openComment, closeComment }) => {
       className={`fixed inset-0 pt-20 w-full flex  flex-col justify-between z-50 overflow-hidden ${
         openComment ? "visible" : "invisible"
       }`}
-      
     >
       <div
         className={`fixed inset-0 bg-gray-400 bg-opacity-70 -z-10 ${
@@ -28,37 +28,13 @@ const PostComment = ({ openComment, closeComment }) => {
             </h1>
           </div>
           {/* Comments */}
-          <div className="flex flex-col gap-y-2 flex-1 pt-8 px-4">
+          <div className="flex flex-col gap-y-2 flex-1 pt-8 px-4 max-h-[500px] scrollbar-thin scrollbar-thumb-rounded-lg scrollbar-thumb-gray-400  scrollbar-track-gray-100  overflow-y-auto">
             {/* Comment */}
-            <div className="flex flex-col gap-y-4 py-3 border-b ">
-              {/* Comment Author */}
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-x-2">
-                  <span className="w-10 h-10 flex items-center justify-center rounded-full bg-cyan-900 text-white">
-                    <User />
-                  </span>
-                  <span className="font-semibold">Amenda</span>
-                  <span className="text-sm text-slate-500">Time</span>
-                </div>
-                <button className="rotate-90 text-slate-600">
-                  <More variant="" />
-                </button>
-              </div>
-              {/* Comment Detail*/}
-              <p className="text-slate-800 px-4 font-bold">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                sunt in culpa qui officia deserunt mollit anim id est laborum.
-              </p>
-              {/* comment Action */}
-              <div className="flex items-center justify-between px-4">
-                <button className="">
-                  <Heart />
-                </button>
-                <button>reply</button>
-              </div>
-            </div>
+            {[1, 2, 3, 4].map((_, index) => (
+              <Comment key={index} />
+            ))}
           </div>
+
           {/* Insert Comment */}
           <div className="flex items-center gap-x-2 pt-2 border-t ">
             <span className="w-10 h-10 rounded-full flex items-center justify-center bg-cyan-900 text-white">
