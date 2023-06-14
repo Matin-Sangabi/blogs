@@ -19,7 +19,7 @@ const PostComment = ({ openComment, closeComment, comments }) => {
   };
   return (
     <div
-      className={`fixed inset-0 pt-40 md:pt-20 w-full flex  flex-col justify-between z-50 overflow-hidden ${
+      className={`fixed inset-0 pt-40 md:pt-20 w-full flex items-center flex-col justify-between z-50 overflow-hidden ${
         openComment ? "visible" : "invisible"
       }`}
     >
@@ -30,11 +30,11 @@ const PostComment = ({ openComment, closeComment, comments }) => {
         onClick={closeCommentHandler}
       ></div>
       <div
-        className={`flex-1 px-2  mx-auto ${
+        className={`flex-auto fixed bottom-0 px-2  mx-auto ${
           openComment ? "translate-y-0" : "translate-y-full"
         } transition-all ease-in-out duration-200`}
       >
-        <div className="max-w-screen-sm px-2 py-4 mx-auto container bg-slate-50 rounded-t-3xl shadow-md h-full flex flex-col justify-between z-50">
+        <div className="max-w-screen-sm px-2 py-4 mx-auto container  bg-slate-50 rounded-t-3xl shadow-md h-full flex flex-col justify-between z-50">
           {/* comment header */}
           <div className="flex flex-col gap-y-2 items-center max-w-screen-md">
             <span className="h-1 w-10 cursor-pointer rounded-2xl bg-gray-500"></span>
@@ -43,7 +43,7 @@ const PostComment = ({ openComment, closeComment, comments }) => {
             </h1>
           </div>
           {/* Comments */}
-          <div className="flex flex-col gap-y-2  flex-1 pt-8 px-4 max-h-[600px] md:max-h-[500px] scrollbar-thin scrollbar-thumb-rounded-lg scrollbar-thumb-gray-400  scrollbar-track-gray-100  overflow-y-auto">
+          <div className="flex flex-col gap-y-2  flex-1 pt-0 px-4 max-h-[500px]  md:max-h-[500px] scrollbar-thin scrollbar-thumb-rounded-lg scrollbar-thumb-gray-400  scrollbar-track-gray-100  overflow-y-auto">
             {/* Comment */}
             {comments.map(
               (comment, index) =>
@@ -69,9 +69,9 @@ const PostComment = ({ openComment, closeComment, comments }) => {
             <div className="flex items-center gap-x-2 relative w-full">
               <div className="w-full py-1 bg-slate-50 rounded-lg ring-1 ring-gray-300 flex items-center">
                 <span
-                  className={`text-slate-800 px-2 ${
-                    onReplyComment.action ? "block" : "hidden"
-                  }`}
+                  className={`text-slate-800 px-2 whitespace-pre ${
+                    onReplyComment.action ? "flex" : "hidden"
+                  } transition-all ease-in-out duration-300 `}
                 >
                   @{onReplyComment.value}
                 </span>
