@@ -1,6 +1,6 @@
 import { Heart, More, User } from "iconsax-react";
 
-const Comment = () => {
+const Comment = ({ onReply , comment }) => {
   return (
     <div className="flex flex-col gap-y-4 py-3 border-b ">
       {/* Comment Author */}
@@ -27,7 +27,7 @@ const Comment = () => {
         <button className="">
           <Heart />
         </button>
-        <button>reply</button>
+        <button onClick={() => onReply(comment)}>reply</button>
       </div>
     </div>
   );

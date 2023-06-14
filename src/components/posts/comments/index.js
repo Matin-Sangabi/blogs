@@ -1,7 +1,21 @@
 import { Heart, More, Send2, User } from "iconsax-react";
 import Comment from "./comment";
+import { useState } from "react";
 
 const PostComment = ({ openComment, closeComment }) => {
+  const [onReplyComment, setOnReplyComment] = useState({
+    value: "",
+    action: false,
+  });
+
+  const closeCommentHandler = () => {
+    closeComment();
+    setOnReplyComment({ ...onReplyComment, value: "", action: false });
+  };
+
+  const replyCommentHandler = (value) => {
+    setOnReplyComment({ ...onReplyComment, value, action: true });
+  };
   return (
     <div
       className={`fixed inset-0 pt-20 w-full flex  flex-col justify-between z-50 overflow-hidden ${
@@ -12,7 +26,7 @@ const PostComment = ({ openComment, closeComment }) => {
         className={`fixed inset-0 bg-gray-400 bg-opacity-70 -z-10 ${
           openComment ? "opacity-100" : "opacity-0"
         } transition-all ease-in-out duration-100`}
-        onClick={closeComment}
+        onClick={closeCommentHandler}
       ></div>
       <div
         className={`flex-1 px-2  mx-auto ${
@@ -30,8 +44,12 @@ const PostComment = ({ openComment, closeComment }) => {
           {/* Comments */}
           <div className="flex flex-col gap-y-2 flex-1 pt-8 px-4 max-h-[500px] scrollbar-thin scrollbar-thumb-rounded-lg scrollbar-thumb-gray-400  scrollbar-track-gray-100  overflow-y-auto">
             {/* Comment */}
-            {[1, 2, 3, 4].map((_, index) => (
-              <Comment key={index} />
+            {["amenda", "maitn", "arash", 4].map((item, index) => (
+              <Comment
+                key={index}
+                onReply={replyCommentHandler}
+                comment={item}
+              />
             ))}
           </div>
 
@@ -41,10 +59,21 @@ const PostComment = ({ openComment, closeComment }) => {
               <User />
             </span>
             <div className="flex items-center gap-x-2 relative w-full">
-              <input
-                className="border-none outline-none w-full py-2 ring-1 ring-gray-300 rounded-lg px-2 focus:shadow-lg focus:ring-gray-700 transition-all ease-in-out duration-200 font-semibold"
-                placeholder="Enter Comment"
-              />
+              <div className="w-full py-1 bg-slate-50 rounded-lg ring-1 ring-gray-300 flex items-center">
+                <span
+                  className={`text-slate-800 px-2 ${
+                    onReplyComment.action ? "block" : "hidden"
+                  }`}
+                >
+                  @{onReplyComment.value}
+                </span>
+                <input
+                  className={`border-none outline-none flex-1 ${
+                    onReplyComment.action ? "px-0" : "px-2"
+                  } py-1 transition-all ease-in-out duration-200 font-semibold`}
+                  placeholder="Enter Comment"
+                />
+              </div>
               <button className="p-2 rounded-lg text-white bg-cyan-900">
                 <Send2 />
               </button>
