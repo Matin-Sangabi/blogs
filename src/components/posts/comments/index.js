@@ -19,7 +19,7 @@ const PostComment = ({ openComment, closeComment, comments }) => {
   };
   return (
     <div
-      className={`fixed inset-0 pt-20 w-full flex  flex-col justify-between z-50 overflow-hidden ${
+      className={`fixed inset-0 pt-40 md:pt-20 w-full flex  flex-col justify-between z-50 overflow-hidden ${
         openComment ? "visible" : "invisible"
       }`}
     >
@@ -43,7 +43,7 @@ const PostComment = ({ openComment, closeComment, comments }) => {
             </h1>
           </div>
           {/* Comments */}
-          <div className="flex flex-col gap-y-2  flex-1 pt-8 px-4 max-h-[500px] scrollbar-thin scrollbar-thumb-rounded-lg scrollbar-thumb-gray-400  scrollbar-track-gray-100  overflow-y-auto">
+          <div className="flex flex-col gap-y-2  flex-1 pt-8 px-4 max-h-[600px] md:max-h-[500px] scrollbar-thin scrollbar-thumb-rounded-lg scrollbar-thumb-gray-400  scrollbar-track-gray-100  overflow-y-auto">
             {/* Comment */}
             {comments.map(
               (comment, index) =>
