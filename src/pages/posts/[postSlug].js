@@ -8,7 +8,6 @@ import { PlayCircle, User } from "iconsax-react";
 import React, { useEffect, useState } from "react";
 
 const PostList = ({ posts }) => {
-  console.log(posts);
   const [openComment, setOpenComment] = useState(false);
   useEffect(() => {
     if (openComment) {
@@ -60,6 +59,7 @@ const PostList = ({ posts }) => {
           <PostComment
             openComment={openComment}
             closeComment={() => setOpenComment(false)}
+            comments = {posts.comments}
           />
         </div>
       </div>

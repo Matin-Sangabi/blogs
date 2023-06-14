@@ -1,8 +1,9 @@
 import { Heart, More, Send2, User } from "iconsax-react";
 import Comment from "./comment";
-import { useState } from "react";
+import { Fragment, useState } from "react";
+import ReplayComment from "./ReplayComment";
 
-const PostComment = ({ openComment, closeComment }) => {
+const PostComment = ({ openComment, closeComment, comments }) => {
   const [onReplyComment, setOnReplyComment] = useState({
     value: "",
     action: false,
@@ -42,15 +43,22 @@ const PostComment = ({ openComment, closeComment }) => {
             </h1>
           </div>
           {/* Comments */}
-          <div className="flex flex-col gap-y-2 flex-1 pt-8 px-4 max-h-[500px] scrollbar-thin scrollbar-thumb-rounded-lg scrollbar-thumb-gray-400  scrollbar-track-gray-100  overflow-y-auto">
+          <div className="flex flex-col gap-y-2  flex-1 pt-8 px-4 max-h-[500px] scrollbar-thin scrollbar-thumb-rounded-lg scrollbar-thumb-gray-400  scrollbar-track-gray-100  overflow-y-auto">
             {/* Comment */}
-            {["amenda", "maitn", "arash", 4].map((item, index) => (
-              <Comment
-                key={index}
-                onReply={replyCommentHandler}
-                comment={item}
-              />
-            ))}
+            {comments.map(
+              (comment, index) =>
+                !comment.responseTo &&
+                comment.status === 2 && (
+                  <Fragment key={comment._id}>
+                    <Comment comment={comment} onReply={replyCommentHandler} />
+                    <ReplayComment
+                      comments={comments}
+                      onReply={replyCommentHandler}
+                      parentCommentId={comment._id}
+                    />
+                  </Fragment>
+                )
+            )}
           </div>
 
           {/* Insert Comment */}
