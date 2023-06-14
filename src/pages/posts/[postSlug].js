@@ -8,6 +8,7 @@ import { PlayCircle, User } from "iconsax-react";
 import React, { useEffect, useState } from "react";
 
 const PostList = ({ posts }) => {
+  console.log(posts);
   const [openComment, setOpenComment] = useState(false);
   useEffect(() => {
     if (openComment) {
@@ -24,6 +25,7 @@ const PostList = ({ posts }) => {
           date={posts.updatedAt}
           url={posts.slug}
           onPostComment={() => setOpenComment(true)}
+          likeCount={posts.likesCount}
         />
         {/* posts detail */}
         <div className="flex w-full flex-col gap-y-6 mt-10">
@@ -31,17 +33,17 @@ const PostList = ({ posts }) => {
             {posts.titleBrief}
           </h1>
           {/* post author */}
-          <div className="w-full flex flex-col lg:flex-row lg:items-center justify-between pt-4">
+          <div className="w-full flex flex-row items-center justify-between pt-4">
             <Author
               name={posts.author.name}
               biography={posts.author.biography}
             />
-            <div className="flex items-center gap-x-2 flex-col md:flex-row">
+            <div className="flex items-center gap-x-2 flex-row">
               <span className="text-slate-400 text-sm font-semibold">
-                {posts.readingTime} minutes read
+                {posts.readingTime} min
               </span>
               <span className="w-2 h-2 bg-slate-400 rounded-full"></span>
-              <div className="flex items-center gap-x-2 hover:underline cursor-pointer">
+              <div className="hidden lg:flex items-center gap-x-2 hover:underline cursor-pointer">
                 <h2 className="text-sm font-semibold text-slate-800">
                   Try Audio
                 </h2>

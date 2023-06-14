@@ -1,20 +1,17 @@
 import { DateCalculate } from "@/utils/DateCalculate";
 import {
   Blogger,
-  Facebook,
   Heart,
-  Instagram,
-  Link21,
   Message,
 } from "iconsax-react";
 import Link from "next/link";
 import MenuAccordion from "../menuAccordion/menuAccordion";
-const SocialPost = ({ date , url , onPostComment }) => {
+const SocialPost = ({ date , url , onPostComment  , likeCount}) => {
 
   return (
-    <div className="p-2 w-full flex flex-col items-start justify-between sticky top-14 backdrop-blur-lg blur-0 opacity-100 lg:flex-row lg:items-center gap-y-2">
-      <div className="flex items-center gap-x-4">
-        <div className="flex items-center gap-x-1 text-base font-semibold text-slate-800">
+    <div className="p-2 w-full flex flex-col items-end justify-between sticky top-14 backdrop-blur-lg blur-0 opacity-100 lg:flex-row lg:items-center gap-y-2">
+      <div className="hidden lg:flex items-center gap-x-4">
+        <div className="flex  items-center gap-x-1 text-base font-semibold text-slate-800">
           <h1>Published in</h1>
           <Blogger />
           <h1>Blogger</h1>
@@ -28,7 +25,7 @@ const SocialPost = ({ date , url , onPostComment }) => {
         <button className="text-slate-700 hover:text-red-800 group">
           <Heart className="group-hover:fill-rose-600" />
         </button>
-        <span className="text-sm">2</span>
+        <span className="text-sm">{likeCount}</span>
         </div>
         <button onClick={onPostComment} className="text-slate-700 hover:text-orange-800">
           <Message />

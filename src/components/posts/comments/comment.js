@@ -1,6 +1,6 @@
 import { Back, Heart, More, User } from "iconsax-react";
 
-const Comment = ({ onReply , comment }) => {
+const Comment = ({ onReply, comment }) => {
   return (
     <div className="flex flex-col gap-y-4 py-3 border-b ">
       {/* Comment Author */}
@@ -13,7 +13,7 @@ const Comment = ({ onReply , comment }) => {
           <span className="text-sm text-slate-500">Time</span>
         </div>
         <button className="rotate-90 text-slate-600">
-          <More variant="" />
+          <More />
         </button>
       </div>
       {/* Comment Detail*/}
@@ -24,7 +24,12 @@ const Comment = ({ onReply , comment }) => {
       </p>
       {/* comment Action */}
       <div className="flex items-center justify-end px-4">
-        <button className="text-sm text-slate-500" onClick={() => onReply(comment)}>reply</button>
+        <button
+          className="text-sm text-slate-500"
+          onClick={() => onReply(comment)}
+        >
+          reply
+        </button>
       </div>
     </div>
   );
