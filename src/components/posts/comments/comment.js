@@ -1,4 +1,4 @@
-import { Heart, More, User } from "iconsax-react";
+import { Back, Heart, More, User } from "iconsax-react";
 
 const Comment = ({ onReply , comment }) => {
   return (
@@ -23,11 +23,8 @@ const Comment = ({ onReply , comment }) => {
         officia deserunt mollit anim id est laborum.
       </p>
       {/* comment Action */}
-      <div className="flex items-center justify-between px-4">
-        <button className="">
-          <Heart />
-        </button>
-        <button onClick={() => onReply(comment)}>reply</button>
+      <div className="flex items-center justify-end px-4">
+        <button className="text-sm text-slate-500" onClick={() => onReply(comment)}>reply</button>
       </div>
     </div>
   );
